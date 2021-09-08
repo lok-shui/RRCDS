@@ -119,7 +119,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:lok-shui/vue2.git"
+    "url": "git@github.com:lok-shui/RRCDS.git"
   },
   "engines": {
     "node": ">= 6.0.0",
