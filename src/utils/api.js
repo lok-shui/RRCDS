@@ -41,7 +41,10 @@ var _post = (url, params = {}) => {
   return service.post(url, qs.stringify(params)).then(res => res);
 }
 /**
- * 封裝Post請求，dataType為JSON
+ * Post請求 （為靈敏所寫）
+ * @url {[string]} [請求url]
+ * @params {[object]} [請求參數]
+ * @return {[Promise]} [返回值]
 */
 var _jsonPost = (url, params = {}, callback) => {
   const service = axios.create({
@@ -49,11 +52,14 @@ var _jsonPost = (url, params = {}, callback) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    withCredentials: true,
+    withCredentials: true, // 允許携帶cookie
   })
+  // response攔截
   service.interceptors.response.use(
     async ({data}) => {
       const response = data;
+      // 根據接口返回success的布爾值，只有為true時才渲染數據，
+      // 就不需在當前頁面根據success是否為true再加一層判斷
       if(response.success) {
         return response || '';
       }

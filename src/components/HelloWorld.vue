@@ -25,21 +25,21 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       temp: {
-        starttime: "",
-        endtime: "",
+        starttime: '',
+        endtime: ''
       },
       startOptions: {
         disabledDate: (time) => {
           if (this.temp.endtime) {
-            return time.getTime() > new Date(this.temp.endtime).getTime();
+            return time.getTime() > new Date(this.temp.endtime).getTime()
           } else {
             // 不能大于当前日期
-            return time.getTime() > Date.now();
+            return time.getTime() > Date.now()
           }
-        },
+        }
       },
       // 结束时间
       endOptions: {
@@ -48,15 +48,15 @@ export default {
             return (
               time.getTime() > Date.now() ||
               time.getTime() < new Date(this.temp.starttime).getTime() - 8.64e7 // 加- 8.64e7则表示包当天
-            );
+            )
           } else {
-            return time.getTime() < Date.now();
+            return time.getTime() < Date.now()
           }
-        },
-      },
-    };
-  },
-};
+        }
+      }
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
