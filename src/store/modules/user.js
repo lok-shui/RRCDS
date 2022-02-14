@@ -36,7 +36,7 @@ const mutations = {
     state.permissions = []
   },
   SET_KEYEDITABLE: (state, superior) => {
-    state.keyEditable = (superior == 0 ? 0 : 1)
+    state.keyEditable = (superior === 0 ? 0 : 1)
   },
   RESET_KEYEDITABLE: (state) => {
     state.keyEditable = 1

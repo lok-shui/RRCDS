@@ -1,12 +1,12 @@
-const formValueObj = (value) => ({ value });
-const getRealVal = (obj) => obj && obj.value;
+const formValueObj = (value) => ({ value })
+const getRealVal = (obj) => obj && obj.value
 
 const cache = {
   localGet(key) {
     try {
       return getRealVal(JSON.parse(window.localStorage.getItem(key)))
     } catch (error) {
-      window.localStorage.clear();
+      window.localStorage.clear()
       throw new Error(error)
     }
   },

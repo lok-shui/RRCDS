@@ -14,10 +14,10 @@ var requestAnimFrame = (function () {
     window.mozRequestAnimationFrame ||
     function (callback) {
       window.setTimeout(callback, 1000 / 60);
-    };
-})();
+    }
+})()
 
-function move(amount){
+function move(amount) {
   document.documentElement.scrollTop = amount
   document.body.parentNode.scrollTop = amount
   document.body.scrollTop = amount
@@ -27,20 +27,20 @@ function position() {
   return document.documentElement.scrollTop || document.body.parentNode.scrollTop || document.body.scrollTop
 }
 
-export function scrollTo(to, duration, callback) {
+export function scrollTo (to, duration, callback) {
   const start = position()
   const change = to - start
   const increment = 20
   let currentTime = 0
   duration = (typeof(duration) === 'undefined') ? 500 : duration
-  var animateScroll = function(){
+  var animateScroll = function () {
     currentTime += increment
     var val = Math.easeInOutQuad(currentTime, start, change, duration)
     move(val)
-    if(currentTime < duration) {
+    if (currentTime < duration) {
       requestAnimFrame(animateScroll)
     } else {
-      if(callback&&typeof(callback)==='function') {
+      if (callback&&typeof(callback)==='function') {
         callback()
       }
     }

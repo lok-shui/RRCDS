@@ -1,7 +1,7 @@
 import { Loading } from 'element-ui'
 
-let needLoadingCount = 0;
-let loading;
+let needLoadingCount = 0
+let loading
 function startLoading(targetEle) {
   loading = Loading.service({
     target: document.querySelector(targetEle),
@@ -12,21 +12,21 @@ function startLoading(targetEle) {
   })
 }
 
-function endLoading(){
+function endLoading () {
   loading && loading.close()
 }
 
-export function showLoading(targetEle) {
-  if( needLoadingCount == 0) {
+export function showLoading (targetEle) {
+  if ( needLoadingCount === 0) {
     startLoading(targetEle)
   }
   needLoadingCount++
 }
 
-export function hideLoading() {
-  if(needLoadingCount < 1) return
+export function hideLoading () {
+  if (needLoadingCount < 1) return
   needLoadingCount --
-  if(needLoadingCount == 0) {
+  if (needLoadingCount === 0) {
     endLoading()
   }
 }

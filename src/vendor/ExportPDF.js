@@ -12,7 +12,7 @@ function downPDF(ele, pdfName, Margin) {
   var win_in = document.documentElement.clientWidth || document.body.clientWidth // 可視區域width
   var win_out = window.innerWidth // 可視區域width(包括滾動條)
 
-  if(win_out > win_in) {
+  if (win_out > win_in) {
     abs = (win_out - win_in) / 2
   }
 
@@ -35,9 +35,9 @@ function downPDF(ele, pdfName, Margin) {
   // http://www.w3.org/2000/svg
   var arr = div.getElementByTagName('svg')
   
-  for(var i = 0; i < arr.length; i++) {
+  for (var i = 0; i < arr.length; i++) {
     var parent = arr[i]
-    if(arr[i].getElementByTagName('use')){
+    if (arr[i].getElementByTagName('use')) {
       console.log('pdfpdf')
     }
   }

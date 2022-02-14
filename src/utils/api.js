@@ -57,10 +57,10 @@ var _jsonPost = (url, params = {}, callback) => {
   // response攔截
   service.interceptors.response.use(
     async ({data}) => {
-      const response = data;
+      const response = data
       // 根據接口返回success的布爾值，只有為true時才渲染數據，
       // 就不需在當前頁面根據success是否為true再加一層判斷
-      if(response.success) {
+      if (response.success) {
         return response || '';
       }
       return Promise.reject(response)

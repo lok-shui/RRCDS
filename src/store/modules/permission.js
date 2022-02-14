@@ -1,7 +1,7 @@
 import { constantRoutes } from '@/router'
 import Layout from '@/layout'
 
-const pMenus = [];
+const pMenus = []
 
 function getPermissionMenus(routesData) {
   routesData.forEach(item => {
@@ -17,7 +17,7 @@ function getPermissionMenus(routesData) {
  * @param route
  */
 function hasPermission(route) {
-  if(route.menuId) {
+  if (route.menuId) {
     /**
      * 如果這個路由有menuId屬性，就需要判斷用戶是否擁有此menuId權限
      */
@@ -34,8 +34,8 @@ function hasPermission(route) {
  */
 function filterAsyncRouter (routerMap) {
   const accessedRouters = routerMap.filter(route => {
-    if(hasPermission(route)) {
-      if(route.children && route.children.length) {
+    if (hasPermission(route)) {
+      if (route.children && route.children.length) {
         // 如果這個路由下面還有下一級的話，就遞歸調用
         route.children = filterAsyncRouter(route.children)
         // 如果過濾一圈后沒有子元素了，這個父級菜單就也不顯示了
@@ -102,7 +102,7 @@ function defaultTrans(routers, data, isRoot, parentPath) {
  * @param transResult 轉換後的二級路由結果
  * @param routes 縂的動態路由
  */
-function filterRouter(transResult, routes) {
+function filterRouter (transResult, routes) {
   routes.forEach(item => {
     const menuItem = {}
     menuItem.path = item.path
@@ -134,7 +134,7 @@ function filterRouter(transResult, routes) {
  * @param child 父級的children對象
  * @param parentPath 父級path
  */
-function trans(resultRoute, child, parentPath) {
+function trans (resultRoute, child, parentPath) {
   child.forEach(item => {
     if (parentPath === '') {
       var parentPath1 = ''

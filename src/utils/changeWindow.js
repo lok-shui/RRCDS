@@ -64,7 +64,7 @@ export default {
     let bodyHeight = 'auto'
 
     function setMaxMin () {
-      if (isFullScreen == false) {
+      if (isFullScreen === false) {
         let i = maxMin.querySelector('.el-icon-full-screen')
         i.classList.remove('el-icon-full-screen')
         i.classList.add('el-icon-crop')
