@@ -211,16 +211,16 @@ export default {
     // 列表排序
     compare (propertyName, sort) {
       return function (obj1, obj2) {
-        var value1 = obj1[propertyName];
-        var value2 = obj2[propertyName];
-        if (typeof value1 === "string" && typeof value2 === "string") {
-          const res = value1.localeCompare(value2, "zh");
-          return sort === "ascending" ? res : -res;
+        var value1 = obj1[propertyName]
+        var value2 = obj2[propertyName]
+        if (typeof value1 === 'string' && typeof value2 === 'string') {
+          const res = value1.localeCompare(value2, 'zh')
+          return sort === 'ascending' ? res : -res
         } else {
           if (value1 <= value2) {
-            return sort === "ascending" ? -1 : 1;
+            return sort === 'ascending' ? -1 : 1
           } else if (value1 > value2) {
-            return sort === "ascending" ? 1 : -1;
+            return sort === 'ascending' ? 1 : -1
           }
         }
       }
