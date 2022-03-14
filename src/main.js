@@ -14,7 +14,7 @@ import App from './App'
 import store from './store'
 import router from './router'
 // import './icons'
-// import './permission' // permission control
+import './permission' // permission control
 import './antd-vue-components'
 // import { mockXHR } from '../mock'
 
