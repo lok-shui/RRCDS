@@ -27,7 +27,8 @@ module.exports = {
   publicPath: process.env.VUE_APP_PUBLIC_PATH, // 部署應用包時的上下文根，默認為'/'
   outputDir: process.env.VUE_APP_OUTPUT_DIR, // 運行 npm run build 時生成的生產環境構建文件目錄
   assetsDir: process.env.VUE_APP_ASSETS_DIR, // 放置生成的靜態資源的（相對於outputDir）目錄
-  lintOnSave: process.env.NODE_ENV === 'development' ? 'error' : false, // 在生產構建時禁用eslint-loader
+  // lintOnSave: process.env.NODE_ENV === 'development' ? 'error' : false, // 在生產構建時禁用eslint-loader
+  lintOnSave: false,
   productionSourceMap: false, // 在生產構建時禁用sourceMap
   devServer: {
     port: port,

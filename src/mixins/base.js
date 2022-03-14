@@ -224,7 +224,52 @@ export default {
           }
         }
       }
-    }
+    },
+    // 請求開始 請求標志位和按鈕設置 
+    // flagAttr:請求標志位 btnArr: 按鈕文案屬性字段  deepFlag: 是否深層字段  labelIndex:深層字段索引
+    requestStart(flagAttr, btnArr, deepFlag, labelIndex) {
+      this[flagAttr] = true
+      if (!deepFlag) {
+        this[btnArr] = 'loading...'
+      } else {
+        let attrIndex = (labelIndex && labelIndex > 0) ? labelIndex : 0
+        this[btnArr][attrIndex].label = 'loading...'
+      }
+    },
+    // 請求結束 resetTxt:按鈕需要重置的文案
+    requestStart(flagAttr, btnArr, deepFlag, labelIndex, resetTxt) {
+      this[flagAttr] = false;
+      if (!deepFlag) {
+        this[btnArr] = resetTxt ? resetTxt : '确定'
+      } else {
+        let attrIndex = (labelIndex && labelIndex > 0) ? labelIndex : 0
+        this[btnArr][attrIndex].label = resetTxt ? resetTxt : '确定'
+      }
+    },
+    // 過濾掉狀態值
+    filterData(dataObj) {
+      let params = {}
+      const arr = ['procstate']
+      for (let a in data) {
+        if (!arr.includes(a)) {
+          params[a] = dataObj[a]
+        }
+      }
+      return params
+    },
+    // 獲取每個月最後一天
+    getMonthLastDayFn(dateStr){
+      let dateObj = new Date(dateStr)
+      let nextMonth = dateObj.getMonth() + 1 // 0-11,下一个月
+
+      dateObj.setMonth(nextMonth)
+      dateObj.setDate(1) // 1-31
+
+      let nextMonthFristDayTime = dateObj.getTime(); // 下个月1号对应毫秒
+      let theMonthLastDayTime = nextMonthFristDayTime - 24*60*60*1000
+      let theMonthDay = (new Date(theMonthLastDayTime)).getDate()
+      return theMonthDay
+    },
 
   }
 }
