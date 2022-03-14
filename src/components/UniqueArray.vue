@@ -3,11 +3,13 @@
     <div>原数组: {{arrItem}}</div>
     <div>过滤后的数组:{{resVal}}</div>
     <!-- <div>{{val1}}</div> -->
+    
+    The folder currently open doesn't have a git respository
   </div>
 </template>
 <script>
 export default {
-  data() {
+  data() {con
     return {
       arrItem: [
         1,
@@ -58,7 +60,7 @@ export default {
     },
     filterArr(arr){
         return arr.filter((item, index, arr) => {
-    //当前元素，在原始数组中的第一个索引==当前索引值，否则返回当前元素
+    // 当前元素，在原始数组中的第一个索引==当前索引值，否则返回当前元素
     return arr.indexOf(item, 0) === index;
   });
 
