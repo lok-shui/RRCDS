@@ -16,7 +16,7 @@ import router from './router'
 // import './icons'
 import './permission' // permission control
 import './antd-vue-components'
-// import { mockXHR } from '../mock'
+import { mockXHR } from '../mock'
 
 // 引入bootsrap
 // import 'bootstrap'
@@ -35,7 +35,7 @@ if (token) {
   Cookies.set('token', token)
 }
 // mock api github pages site build
-// if (process.env.NODE_ENV === 'production') { mockXHR }
+if (process.env.NODE_ENV === 'production') { mockXHR }
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'size' // set element-ui default size
